@@ -20,6 +20,6 @@ cells_2 = nootebooks_2_json['cells']
 target_cells = cells_1 + cells_2
 
 target_json = json.dumps(target_cells)
-target = open('target_notebook,ipynb','w')
+target = open('target_notebook.ipynb','w')
 target.write(target_json)
 
