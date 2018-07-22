@@ -16,10 +16,17 @@ print(nootebooks_2)
 
 cells_2 = nootebooks_2_json['cells']
 
+del nootebooks_1_json['cells']
+
+
 # cat two nootebooks
 target_cells = cells_1 + cells_2
 
-target_json = json.dumps(target_cells)
+target_notebook ={}
+target_notebook['cells'] = target_cells
+target_notebook.update(nootebooks_1_json)
+
+target_str = json.dumps(target_notebook)
 target = open('target_notebook.ipynb','w')
-target.write(target_json)
+target.write(target_str)
 
