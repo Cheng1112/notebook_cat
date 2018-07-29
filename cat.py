@@ -1,6 +1,11 @@
 import json
+import sys
+
+# accept argument
+notebook_path1 = sys.argv[1]
+notebook_path2 = sys.argv[2]
 # read nootebooks
-nootebooks_1 = open('1!!!.ipynb')
+nootebooks_1 = open(notebook_path1)
 nootebooks_1_str = nootebooks_1.read()
 nootebooks_1_json = json.loads(nootebooks_1_str)
 
@@ -8,7 +13,7 @@ print(nootebooks_1)
 
 cells_1 = nootebooks_1_json['cells']
 
-nootebooks_2 = open('2!!!.ipynb')
+nootebooks_2 = open(notebook_path2)
 nootebooks_2_str = nootebooks_2.read()
 nootebooks_2_json = json.loads(nootebooks_2_str)
 
@@ -30,3 +35,8 @@ target_str = json.dumps(target_notebook)
 target = open('target_notebook.ipynb','w')
 target.write(target_str)
 
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
