@@ -1,10 +1,21 @@
 import json
 import sys
 
-# accept argument
-notebook_path1 = sys.argv[1]
-notebook_path2 = sys.argv[2]
-# read nootebooks
+# accept argument list
+notebook_path_lst = sys.argv[1:]
+
+cells_lst = []
+target_notebook ={}
+
+# read nootebook path list
+for path in notebook_path_lst:
+    notebook = open(path)
+    notebook_str = notebook.read()
+    notebook_json = json.loads(notebook_str)
+    cells = notebook_json['cells']
+    cells_lst += cells
+    target_notebook['cells'] = cells_lst
+ 
 nootebooks_1 = open(notebook_path1)
 nootebooks_1_str = nootebooks_1.read()
 nootebooks_1_json = json.loads(nootebooks_1_str)
